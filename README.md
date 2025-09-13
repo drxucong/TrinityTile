@@ -62,26 +62,18 @@ TrinityTile follows the [TinyTapeout I/O standard](https://tinytapeout.com/specs
 ## Getting Started
 
 Clone this repo:
+```bash
 git clone https://github.com/drxucong/TrinityTile.git
 cd TrinityTile
-
-cpp
-Copy code
-
 Run simulation (using Verilator + cocotb):
+
+bash
+Copy code
 make sim
-
-css
-Copy code
-
 Run synthesis (Yosys + OpenLane flow):
-make synth
 
-yaml
+bash
 Copy code
-
----
-
-## License
-
+make synth
+License
 This project is licensed under the MIT License.
