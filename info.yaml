@@ -1,0 +1,24 @@
+# info.yaml -- Required by TinyTapeout
+project:
+  name: "TrinityTile"
+  author: "Cong Xu"
+  description: "A reconfigurable 3-in-1 logic tile for TinyTapeout SKY130. Supports CPU-Max, GPU/SIMD-Max, and Mem-Max modes."
+  language: "verilog"
+  top_module: "tt_um_trinitytile"
+
+# IO mapping according to TinyTapeout standard
+io:
+  inputs:
+    - ui_in[7:0]   # user inputs
+  outputs:
+    - uo_out[7:0]  # user outputs
+  bidirectional:
+    - uio_in[7:0]
+    - uio_out[7:0]
+    - uio_oe[7:0]
+  other:
+    - ena
+    - clk
+    - rst_n
+
+license: "MIT"
