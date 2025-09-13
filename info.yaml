@@ -1,0 +1,57 @@
+yaml_version: 6
+
+project:
+  title: "TrinityTile"
+  author: "Cong Xu"
+  discord: ""
+  description: "A reconfigurable 3-in-1 logic tile for TinyTapeout SKY130. Supports CPU‑Max, GPU/SIMD‑Max, and Mem‑Max roles in a unified architecture."
+  language: "Verilog"
+  top_module: "tt_um_trinitytile"
+  source_files:
+    - "src/tt_um_trinitytile.v"
+  clock_hz: 10000000  # 10 MHz default demo-board clock
+
+pinout:
+  # Leave unused pins as empty strings. Describe only what you plan to use.
+  ui:
+    - "ui_in[0] Mode bit 0 / data in LSB"
+    - "ui_in[1] Mode bit 1"
+    - "ui_in[2] Mode bit 2"
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+  uo:
+    - "uo_out[0] Status/result bit 0"
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+  uio:
+    - "uio[0] Bidirectional GPIO"
+    - "uio[1] Bidirectional GPIO"
+    - "uio[2] Bidirectional GPIO"
+    - "uio[3] Bidirectional GPIO"
+    - "uio[4] Bidirectional GPIO"
+    - "uio[5] Bidirectional GPIO"
+    - "uio[6] Bidirectional GPIO"
+    - "uio[7] Bidirectional GPIO"
+
+documentation:
+  # These fields are used to generate your project datasheet on the TT site.
+  how_it_works: >
+    TrinityTile is a unified reconfigurable tile that can morph between CPU‑Max,
+    SIMD/GPU‑Max, and Mem‑Max personalities. For TT submission, the minimal stub
+    implements a small control/state machine that exposes a mode register on ui_in[2:0]
+    and returns a status bit on uo_out[0].
+  how_to_test: >
+    Drive a clock on 'clk', hold 'rst_n' low for several cycles, then high.
+    Change ui_in[2:0] to select a mode and observe uo_out[0].
+    Optional: use the uio[*] pins as GPIO for additional experiments.
+  external_hw: >
+    None required; runs on the TinyTapeout demo‑board. Optional PMODs can be
+    attached to uio[*] if needed.
